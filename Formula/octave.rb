@@ -108,6 +108,7 @@ class Octave < Formula
     ENV['CXXFLAGS']=''    
     system "./bootstrap" if build.head?
     system "./configure", *args
+    system "make CFLAGS='' CXXFLAGS=''"
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
