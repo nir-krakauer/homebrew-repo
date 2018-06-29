@@ -25,7 +25,7 @@ class Jasper < Formula
     mkdir "build" do
       # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
       # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045
-      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
+      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework" if OS.mac?
       system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", *cmake_args
       system "make"
       system "make", "test"
