@@ -10,7 +10,7 @@ class Jasper < Formula
     sha256 "c481b8887b8d29e3c63735dd2151c9246e08f21bf50334033de4a054f700a6db" => :el_capitan
   end
 
-  option "without-doc", "Disable the building of the documentation (which requires LaTeX)"
+  option "with-doc", "Enable the building of the documentation (which requires LaTeX)"
 
   depends_on "cmake" => :build
   depends_on "jpeg"
@@ -28,7 +28,7 @@ class Jasper < Formula
       glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework" if OS.mac?
       system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", *cmake_args
       system "make"
-      system "make", "test"
+      system "make", "test" if build.with?("test")
       system "make", "install"
     end
   end
