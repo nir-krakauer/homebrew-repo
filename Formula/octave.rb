@@ -105,7 +105,7 @@ class Octave < Formula
     ]
 
     system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./configure CFLAGS='' CXXFLAGS=''", *args
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
