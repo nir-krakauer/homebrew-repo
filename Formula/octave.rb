@@ -104,8 +104,10 @@ class Octave < Formula
       --with-sndfile
     ]
 
+    ENV['CFLAGS']=''
+    ENV['CXXFLAGS']=''    
     system "./bootstrap" if build.head?
-    system "./configure CFLAGS='' CXXFLAGS=''", *args
+    system "./configure", *args
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
