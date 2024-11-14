@@ -49,7 +49,7 @@ class UtilLinux < Formula
   end
 
   on_linux do
-    depends_on "readline"
+    # depends_on "readline"
 
     conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
     conflicts_with "flock", because: "both install `flock` binaries"
