@@ -53,20 +53,20 @@ class Curl < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "pkgconf" => :build
-  depends_on "brotli"
-  depends_on "libnghttp2"
-  depends_on "libssh2"
-  depends_on "openssl@3"
-  depends_on "rtmpdump"
-  depends_on "zstd"
+  # depends_on "pkgconf" => :build
+  # depends_on "brotli"
+  # depends_on "libnghttp2"
+  # depends_on "libssh2"
+  # depends_on "openssl@3"
+  # depends_on "rtmpdump"
+  # depends_on "zstd"
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
   uses_from_macos "zlib"
 
   on_system :linux, macos: :monterey_or_older do
-    depends_on "libidn2"
+    # depends_on "libidn2"
   end
 
   def install
