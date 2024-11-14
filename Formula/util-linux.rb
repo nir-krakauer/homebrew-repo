@@ -93,7 +93,7 @@ class UtilLinux < Formula
     end
 
     system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
-    system "make", "install"
+    system "make", "install", "LDFLAGS=\"-lm\""
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
